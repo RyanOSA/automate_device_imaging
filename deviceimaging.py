@@ -43,9 +43,9 @@ def main():
         return
 
     # Prompt for necessary information
-    encrypted_drive = prompt_user("Enter the source drive (e.g., /dev/sda): ")
-    is_encrypted = prompt_user("Is the device encrypted with BitLocker? (yes/no): ").strip().lower()
-    external_drive = prompt_user("Enter the external drive (e.g., /dev/sdb1): ")
+    encrypted_drive = prompt_user("From the list above, locate the source drive, and enter the name of the partition labeled 'Microsoft basic data' (e.g., /dev/sda3): ")
+    is_encrypted = prompt_user("Is this device encrypted with BitLocker? (yes/no): ").strip().lower()
+    external_drive = prompt_user("From the list above, enter the name of external drive (e.g., /dev/sdb1): ")
     
     if is_encrypted == 'yes':
         recovery_key = prompt_user("Enter the BitLocker recovery key: ")
@@ -105,6 +105,7 @@ def main():
 
     try:
         # Use rsync to copy files
+        print("Transfer in progress...")
         run_command(f"rsync -a {source_mount_point}/ /mnt/Destination/")
     except Exception as e:
         print(f"Error copying files with rsync: {e}")
