@@ -115,8 +115,8 @@ def main():
         # Unmount all paths
         run_command("umount /mnt/Destination")
         if is_encrypted == 'yes':
-            run_command("umount /mnt/bitlocker")
             run_command("umount /mnt/decrypted")
+            run_command("umount /mnt/bitlocker")
         else:
             run_command("umount /mnt/Source")
     except Exception as e:
