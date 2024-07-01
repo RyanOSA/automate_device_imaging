@@ -51,7 +51,7 @@ def main():
         recovery_key = prompt_user("Enter the BitLocker recovery key: ")
         try:
             # Create necessary directories
-            run_command("mkdir -p /mnt/bitlocker /mnt/decrypted /mnt/Destination/BasicData")
+            run_command("mkdir -p /mnt/bitlocker /mnt/decrypted /mnt/Destination")
         except Exception as e:
             print(f"Error creating directories: {e}")
             return
@@ -82,7 +82,7 @@ def main():
     else:
         try:
             # Create necessary directories
-            run_command("mkdir -p /mnt/Source /mnt/Destination/BasicData")
+            run_command("mkdir -p /mnt/Source /mnt/Destination")
         except Exception as e:
             print(f"Error creating directories: {e}")
             return
@@ -105,7 +105,7 @@ def main():
 
     try:
         # Use rsync to copy files
-        run_command(f"rsync -a {source_mount_point}/ /mnt/Destination/BasicData/")
+        run_command(f"rsync -a {source_mount_point}/ /mnt/Destination/")
     except Exception as e:
         print(f"Error copying files with rsync: {e}")
         return
