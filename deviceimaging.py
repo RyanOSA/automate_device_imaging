@@ -123,7 +123,7 @@ def main():
         print(f"Error unmounting drives: {e}")
         return
 
-    print("Process completed successfully. You can now safely remove the external drive and the USB drive.")
+    print("Process completed successfully. You can now safely remove the external drive and the Flash Drive.")
 
 if __name__ == "__main__":
     main()
